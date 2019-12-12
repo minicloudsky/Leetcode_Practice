@@ -33,8 +33,7 @@ class Solution(object):
             return False
         each_bite = []
         while x > 0:
-            position = x % 10
-            each_bite.append(position)
+            each_bite.append(x % 10)
             x = int(x / 10)
         for i in range(int(len(each_bite) / 2)):
             if each_bite[i] != each_bite[len(each_bite) - i - 1]:
