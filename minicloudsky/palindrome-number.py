@@ -40,7 +40,13 @@ class Solution(object):
                 return False
 
         return True
-
+# 1 2 3 4 5 6
+#     i     n-1
+"""
+总长度下标  n-1
+当前为 i
+剩余长度 n-1-i
+"""
 
 if __name__ == '__main__':
     x = 123454321

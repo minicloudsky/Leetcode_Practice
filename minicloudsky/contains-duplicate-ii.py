@@ -20,6 +20,7 @@
 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
 """
 
+
 class Solution(object):
     def containsNearbyDuplicate(self, nums, k):
         """
@@ -27,16 +28,32 @@ class Solution(object):
         :type k: int
         :rtype: bool
         """
-        # 1笨方法，类似于冒泡排序
-        for i in range(len(nums) - 1):
-            for j in range(i+1, len(nums)):
-                if abs(i-j) == k and nums[i]==nums[j]:
+        for i in range(len(nums)):
+            for j in range(max(i - k), i):
+                if nums[i] == nums[j]:
                     return True
         return False
 
 
+"""
+public boolean containsNearbyDuplicate(int[] nums, int k) {
+    for (int i = 0; i < nums.length; ++i) {
+        for (int j = Math.max(i - k, 0); j < i; ++j) {
+            if (nums[i] == nums[j]) return true;
+        }
+    }
+    return false;
+}
+// Time Limit Exceeded.
+
+作者：LeetCode
+链接：https://leetcode-cn.com/problems/contains-duplicate-ii/solution/cun-zai-zhong-fu-yuan-su-ii-by-leetcode/
+来源：力扣（LeetCode）
+著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+"""
+
 if __name__ == '__main__':
-    nums = [1, 1, 2, ]
+    nums = [99, 99]
     k = 2
     solution = Solution()
     print(solution.containsNearbyDuplicate(nums, k))
